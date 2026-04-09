@@ -1,0 +1,7 @@
+- name: Update Jira Issue
+  run: |
+    curl -D- -u ${{ secrets.JIRA_USER }}:${{ secrets.JIRA_TOKEN }} \
+    -X POST \
+    --data '{"update":{"comment":[{"add":{"body":"Deployment triggered from GitHub Actions"}}]}}' \
+    -H "Content-Type: application/json" \
+    https://yourcompany.atlassian.net/rest/api/2/issue/PROJ-123
